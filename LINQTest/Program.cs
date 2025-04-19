@@ -92,3 +92,5 @@ DateTime today = DateTime.Now;
 DateTime nextWeek = today.AddDays(14);
 Console.WriteLine(today.ToString("yyy-MM-dd"));
 Console.WriteLine(nextWeek.ToString("yyy-MM-dd"));
+
+//Today Code Is Enough

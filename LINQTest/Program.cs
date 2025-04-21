@@ -19,6 +19,7 @@ foreach (var i in EvenNumber)
 {
     Console.WriteLine(i);
 }
+
 //Method Syntax
 var evenNumber = number.Where(i => i % 2 == 0);
 
@@ -82,6 +83,16 @@ int Age = 15;
     }
    
 }
+
+int findAge(int year)
+{
+    int currenYear = 2025;
+    int age = currenYear - year;
+    return age;
+}
+Console.WriteLine(findAge(2005));
+
+
 DateTime time = DateTime.Now;
 //Clock Time
 Console.WriteLine(time.ToString("hhh-mm-ss"));

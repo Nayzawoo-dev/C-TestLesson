@@ -92,6 +92,11 @@ int findAge(int year)
 }
 Console.WriteLine(findAge(2005));
 
+string setName(string name)
+{
+    return "I am " + name;
+}
+Console.WriteLine(setName("Nay Zaw Oo"));
 
 DateTime time = DateTime.Now;
 //Clock Time

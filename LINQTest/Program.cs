@@ -1,4 +1,5 @@
 ﻿int[] number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 //Noraml Syntax
 foreach (var i in number)
 {
@@ -94,9 +95,12 @@ Console.WriteLine(findAge(2005));
 
 string setName(string name)
 {
+    
+    Console.WriteLine(findAge(2008));
     return "I am " + name;
 }
 Console.WriteLine(setName("Nay Zaw Oo"));
+
 
 DateTime time = DateTime.Now;
 //Clock Time

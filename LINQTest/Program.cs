@@ -114,7 +114,8 @@
 //Product Pratical
 BeforeSystem:
 InventoryService inventoryService = new InventoryService();
-inventoryService.CreateProduct();
-goto BeforeSystem;
+//inventoryService.CreateProduct();
+inventoryService.ViewProduct();
+//goto BeforeSystem;
 
-//Console.ReadLine();
+Console.ReadLine();

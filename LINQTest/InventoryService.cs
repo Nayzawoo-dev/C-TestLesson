@@ -86,5 +86,14 @@ namespace LINQTest
             //Data.products2[Data.productId - 1] = product;
             Console.WriteLine("Insert Successfully!");
         }
+        public void ViewProduct() {
+            Console.WriteLine("Product List");
+            foreach (var item in Data.products) {
+                Console.WriteLine($"Id : {item.Id}, Code : {item.Code}, Name : {item.Name}, Price : {item.Price}, Quantity : {item.Quantity}, Category : {item.Category}");
+
+            }
+        }
+
     }
+
 }

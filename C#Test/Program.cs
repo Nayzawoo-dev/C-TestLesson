@@ -151,9 +151,9 @@ public class idCard2 : Iresume
 }
 
 // example of Inheritence
-public class NationalCard : idCard
+public class NationalCard : Iresume
 {
-    public NationalCard(string idnum, string name, int age) : base(idnum, name, age)
+    public NationalCard(string idnum, string name, int age)
     {
 
     }

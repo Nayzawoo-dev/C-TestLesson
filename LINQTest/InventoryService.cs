@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,8 @@ namespace LINQTest
 {
     internal class InventoryService
     {
-        public void  CreateProduct() {
+        public void CreateProduct()
+        {
             Console.WriteLine("Product Management System");
 
             Console.Write("Input Product Name: ");
@@ -86,32 +88,43 @@ namespace LINQTest
             //Data.products2[Data.productId - 1] = product;
             Console.WriteLine("Insert Successfully!");
         }
-        public void ViewProduct() {
+        public void ViewOldProduct()
+        {
             Console.WriteLine("Product List");
-            foreach (var item in Data.products) {
+            foreach (var item in Data.products)
+            {
                 Console.WriteLine($"Id : {item.Id}, Code : {item.Code}, Name : {item.Name}, Price : {item.Price}, Quantity : {item.Quantity}, Category : {item.Category}");
 
             }
         }
 
-        public void UpdateProduct() {
+        public void UpdateProduct()
+        {
         BeforeCode:
             Console.Write("Input Product Code: ");
             string code = Console.ReadLine()!;
 
-            var item2 = Data.products.FirstOrDefault(p => p.Code == code);
-            if (item2 is null) {
+
+
+            foreach (var item in Data.products)
+            {
+                Data.newArr.Add(new Product(item.Id, item.Code, item.Name, item.Price, item.Quantity, item.Category));
+            }
+            var item2 = Data.newArr.FirstOrDefault(p => p.Code == code);
+            if (item2 is null)
+            {
                 Console.WriteLine("Product Not Found");
                 goto BeforeCode;
             }
 
             Console.WriteLine("Product is found.");
-            Console.WriteLine($"Code : {item2.Code}, Name : {item2.Quantity}, Quantity : {item2.Quantity}");
+            Console.WriteLine($"Code : {item2.Code}, Name : {item2.Name}, Quantity : {item2.Quantity}");
         BeforeQuantity:
             Console.Write("Insert Quantity: ");
             string quantity = Console.ReadLine()!;
             bool quantityResult = int.TryParse(quantity, out int ProductQuantity);
-            if (quantityResult is false) {
+            if (quantityResult is false)
+            {
                 Console.WriteLine("Invalid Case");
                 goto BeforeQuantity;
             }
@@ -145,6 +158,13 @@ namespace LINQTest
 
 
         }
-    }
 
+        public void ViewUpdateProduct()
+        {
+            foreach (var newarr in Data.newArr) {
+                Console.WriteLine($"Id : {newarr.Id}, Code : {newarr.Code}, Name : {newarr.Name}, Price : {newarr.Price}, Quantity : {newarr.Quantity}, Category : {newarr.Category}");
+            }
+        }
+
+    }
 }

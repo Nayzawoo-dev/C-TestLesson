@@ -119,12 +119,13 @@ Console.WriteLine("Inventory Management System");
 Console.WriteLine("1. Create Product");
 Console.WriteLine("2. Update Product");
 Console.WriteLine("3. Delete Product");
-Console.WriteLine("4. View Product");
-Console.WriteLine("5. Exit");
+Console.WriteLine("4. View Old Product");
+Console.WriteLine("5. View Update Product");
+Console.WriteLine("6. Exit");
 Console.Write("Select Your Option : ");
 string option1 = Console.ReadLine()!;
 bool option = int.TryParse(option1!, out int value);
-if (option is false || value > 5)
+if (option is false || value > 6)
 {
     Console.WriteLine("Invalid Option!");
     goto BeforeSystem;
@@ -134,8 +135,12 @@ switch (value)
     case 1 : inventoryService.CreateProduct();goto BeforeSystem;
     case 2 : inventoryService.UpdateProduct();goto BeforeSystem;
     case 3 : inventoryService.DeleteProduct();goto BeforeSystem;
-    case 4 : inventoryService.ViewProduct();goto BeforeSystem;
-    case 5 : goto Exit;
+    case 4 : inventoryService.ViewOldProduct();goto BeforeSystem;
+    case 5: inventoryService.ViewUpdateProduct(); goto BeforeSystem;
+    case 6 : goto Exit;
+    default: break;
+
+
 
 }
 Exit:

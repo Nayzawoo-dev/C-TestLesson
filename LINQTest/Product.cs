@@ -24,5 +24,9 @@ namespace LINQTest
             Quantity = quantity;
             Category = category;
         }
+
+       
+
     }
+
 }

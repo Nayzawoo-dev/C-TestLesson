@@ -112,10 +112,33 @@
 ////Today Code Is Enough
 
 //Product Pratical
-BeforeSystem:
-InventoryService inventoryService = new InventoryService();
-//inventoryService.CreateProduct();
-inventoryService.ViewProduct();
-//goto BeforeSystem;
 
-Console.ReadLine();
+InventoryService inventoryService = new InventoryService();
+BeforeSystem:
+Console.WriteLine("Inventory Management System");
+Console.WriteLine("1. Create Product");
+Console.WriteLine("2. Update Product");
+Console.WriteLine("3. Delete Product");
+Console.WriteLine("4. View Product");
+Console.WriteLine("5. Exit");
+Console.Write("Select Your Option : ");
+string option1 = Console.ReadLine()!;
+bool option = int.TryParse(option1!, out int value);
+if (option is false || value > 5)
+{
+    Console.WriteLine("Invalid Option!");
+    goto BeforeSystem;
+}
+switch (value)
+{
+    case 1 : inventoryService.CreateProduct();goto BeforeSystem;
+    case 2 : inventoryService.UpdateProduct();goto BeforeSystem;
+    case 3 : inventoryService.DeleteProduct();goto BeforeSystem;
+    case 4 : inventoryService.ViewProduct();goto BeforeSystem;
+    case 5 : goto Exit;
+
+}
+Exit:
+Console.ReadKey();
+
+//Console.ReadLine();

@@ -94,6 +94,57 @@ namespace LINQTest
             }
         }
 
+        public void UpdateProduct() {
+        BeforeCode:
+            Console.Write("Input Product Code: ");
+            string code = Console.ReadLine()!;
+
+            var item2 = Data.products.FirstOrDefault(p => p.Code == code);
+            if (item2 is null) {
+                Console.WriteLine("Product Not Found");
+                goto BeforeCode;
+            }
+
+            Console.WriteLine("Product is found.");
+            Console.WriteLine($"Code : {item2.Code}, Name : {item2.Quantity}, Quantity : {item2.Quantity}");
+        BeforeQuantity:
+            Console.Write("Insert Quantity: ");
+            string quantity = Console.ReadLine()!;
+            bool quantityResult = int.TryParse(quantity, out int ProductQuantity);
+            if (quantityResult is false) {
+                Console.WriteLine("Invalid Case");
+                goto BeforeQuantity;
+            }
+
+            item2.Quantity -= ProductQuantity;
+            Console.WriteLine("Product Updated Successfully");
+
+        }
+        public void DeleteProduct()
+        {
+        BeforeId:
+            Console.Write("Insert Product Id: ");
+            string insertId = Console.ReadLine()!;
+            bool isId = int.TryParse(insertId, out int ProductId);
+            if (isId is false)
+            {
+                Console.WriteLine("Invalid Id");
+                goto BeforeId;
+            }
+
+
+
+            var deleteId = Data.products.FirstOrDefault(p => p.Id == ProductId);
+            if (deleteId is null)
+            {
+                Console.WriteLine("Invalid Id");
+                goto BeforeId;
+            }
+
+            Data.products.Remove(deleteId);
+
+
+        }
     }
 
 }

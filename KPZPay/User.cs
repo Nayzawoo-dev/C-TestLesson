@@ -8,10 +8,12 @@ namespace KPZPay
 {
     internal class User
     {
+        public int id;
         public string Name;
         public string Ph_No;
         public int Amount;
-        public User(string name,string Phone,int amount) { 
+        public User(int Id,string name,string Phone,int amount) { 
+        id = Id; 
         Name = name;
         Ph_No = Phone;
         Amount = amount;

@@ -18,7 +18,8 @@ if (isInt is false)
 }
 switch (value)
 {
-    case 1: if(kBZService.Login() is true)
+    case 1:
+        if (kBZService.Login() is true)
         {
         BeforeOPT:
             Console.WriteLine("Please Select Your User Option?");
@@ -35,21 +36,22 @@ switch (value)
             }
             switch (selectOption)
             {
-                case 1: kBZService.InsertMoney();goto BeforeOPT;
-                case 2: kBZService.TransferMoney();goto BeforeOPT;
-                case 3: kBZService.withDraw();goto BeforeOPT;
+                case 1: kBZService.InsertMoney(); goto BeforeOPT;
+                case 2: kBZService.TransferMoney(); goto BeforeOPT;
+                case 3: kBZService.withDraw(); goto BeforeOPT;
                 case 4: goto Kpay;
             }
         }
         else
         {
             goto Kpay;
-        };break;
+        }
+        ; break;
         ;
 
-    case 2:kBZService.ViewUser();goto Kpay;
-    case 3:kBZService.CreateAcc();goto Kpay;
-    case 4:goto Exit;
+    case 2: kBZService.ViewUser(); goto Kpay;
+    case 3: kBZService.CreateAcc(); goto Kpay;
+    case 4: goto Exit;
     default: break;
 }
 Exit:

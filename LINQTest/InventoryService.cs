@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -136,7 +137,7 @@ namespace LINQTest
         public void DeleteProduct()
         {
         BeforeId:
-            Console.Write("Insert Product Id: ");
+            Console.Write("Insert Product Id: ");//Id format check
             string insertId = Console.ReadLine()!;
             bool isId = int.TryParse(insertId, out int ProductId);
             if (isId is false)
@@ -147,7 +148,7 @@ namespace LINQTest
 
 
 
-            var deleteId = Data.products.FirstOrDefault(p => p.Id == ProductId);
+            var deleteId = Data.products.FirstOrDefault(p => p.Id == ProductId);//ID No Check
             if (deleteId is null)
             {
                 Console.WriteLine("Invalid Id");

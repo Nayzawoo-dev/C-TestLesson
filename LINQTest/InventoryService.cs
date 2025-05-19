@@ -86,6 +86,7 @@ namespace LINQTest
             string productCode = "P" + Data.productId.ToString().PadLeft(3, '0');
             Product product = new Product(Data.productId, productCode, ProductName, ProductPrice, ProductQuantity, "Fruite");
             Data.products.Add(product);
+
             //Data.products2[Data.productId - 1] = product;
             Console.WriteLine("Insert Successfully!");
         }
@@ -99,14 +100,11 @@ namespace LINQTest
             }
         }
 
-        public void UpdateProduct()
+        public void UpdateProduct() 
         {
         BeforeCode:
             Console.Write("Input Product Code: ");
             string code = Console.ReadLine()!;
-
-
-
             foreach (var item in Data.products)
             {
                 Data.newArr.Add(new Product(item.Id, item.Code, item.Name, item.Price, item.Quantity, item.Category));
@@ -137,25 +135,25 @@ namespace LINQTest
         public void DeleteProduct()
         {
         BeforeId:
-            Console.Write("Insert Product Id: ");//Id format check
-            string insertId = Console.ReadLine()!;
-            bool isId = int.TryParse(insertId, out int ProductId);
-            if (isId is false)
-            {
-                Console.WriteLine("Invalid Id");
+            Console.Write("Insert Product Code: ");//Id format check
+            string insertCode = Console.ReadLine();
+            var deleteId = Data.newArr.FirstOrDefault(p => p.Code == insertCode);//Product Code Check
+            if (deleteId is null) {
+                Console.WriteLine("Your Product Is Not Found");
                 goto BeforeId;
             }
-
-
-
-            var deleteId = Data.products.FirstOrDefault(p => p.Id == ProductId);//ID No Check
-            if (deleteId is null)
+            Console.WriteLine($"{deleteId.Id} , {deleteId.Code} , {deleteId.Name} , {deleteId.Price} , {deleteId.Quantity} , {deleteId.Category}");
+            Console.WriteLine("Are You Sure Delete (Y/N)?");
+            string sure = Console.ReadLine()!;
+            if (sure.ToUpper() is "Y")
             {
-                Console.WriteLine("Invalid Id");
-                goto BeforeId;
+                Data.newArr.Remove(deleteId);
+                Console.WriteLine("Your Product Is Delete Successfully!");
             }
-
-            Data.products.Remove(deleteId);
+            else
+            {
+                Console.WriteLine("Your Operation Is Cancel");
+            }
 
 
         }

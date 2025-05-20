@@ -8,10 +8,11 @@ using Microsoft.Data.SqlClient;
 Services sv = new Services();
 //sv.Read();
 //sv.ReadDetail(2);
-sv.Create();
+//sv.Create();
 //sv.Login();
 //sv.Update();
 //sv.Delete();
+sv.LoginWithDapper();
 Console.ReadKey();
  
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client.Extensibility;
 
@@ -203,7 +204,7 @@ namespace ConsoleApp2
             }
             Console.WriteLine("Are You Sure Delete (y/n)");
             string yes = Console.ReadLine();
-            if(yes.ToUpper() == "Y")
+            if (yes.ToUpper() == "Y")
             {
                 conn.Open();
                 string query2 = @"DELETE FROM Tbl_HomeWork
@@ -215,8 +216,20 @@ namespace ConsoleApp2
                 Console.WriteLine("You Delete Successfully");
             }
 
-           
-        }
-    }
 
+        }
+
+        public void LoginWithDapper()
+        {
+            using IDbConnection connection = new SqlConnection(_str.ConnectionString);
+            Console.WriteLine("Enter Your Roll No : ");
+            int Roll_No = Convert.ToInt32(Console.ReadLine());
+            string query = "select * from Tbl_HomeWork where Roll_No = @Roll_No";
+            var list = connection.Query<HomeWork>(query, new {Roll_No});
+            foreach (var item in list) { 
+            Console.WriteLine(item.GitHubUserName);
+            }
+        }
+
+    }
 }

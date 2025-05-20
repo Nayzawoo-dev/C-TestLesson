@@ -1,17 +1,17 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Data;
+using System.Data.SqlTypes;
+using System.Net.Http.Headers;
+using ConsoleApp2;
 using LINQTest;
-Console.WriteLine("Hello World");
+using Microsoft.Data.SqlClient;
 
-Product product = new Product
-{
-    Id = 1,
-    Code = "P001",
-    Name = "Test",
-    Price = 10.99m,
-    Quantity = 1,
-    Category = "His"
+Services sv = new Services();
+sv.Read();
+sv.ReadDetail("2223CS-106");
+Console.ReadKey();
+ 
 
-};
+
 
 
 

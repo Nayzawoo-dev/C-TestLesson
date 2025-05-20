@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
@@ -103,6 +104,7 @@ namespace ConsoleApp2
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             connection.Close();
+            Console.WriteLine("You Insert Successfully");
         }
 
         public void Login()
@@ -178,6 +180,42 @@ namespace ConsoleApp2
             command.ExecuteNonQuery();
             connection.Close();
             Console.WriteLine("You Update Successfully");
+        }
+
+        public void Delete()
+        {
+        BeforeDelete:
+            Console.Write("Enter Your Roll_No : ");
+            int Roll_No = Convert.ToInt32(Console.ReadLine());
+            SqlConnection conn = new SqlConnection(_str.ConnectionString);
+            conn.Open();
+            string query1 = @"select * from Tbl_HomeWork where Roll_No = @Roll_No";
+            SqlCommand cmd1 = new SqlCommand(query1, conn);
+            cmd1.Parameters.AddWithValue("@Roll_No", Roll_No);
+            SqlDataAdapter adt = new SqlDataAdapter(cmd1);
+            DataTable dt = new DataTable();
+            adt.Fill(dt);
+            conn.Close();
+            if (dt.Rows.Count == 0)
+            {
+                Console.WriteLine("Your Roll No Not Found");
+                goto BeforeDelete;
+            }
+            Console.WriteLine("Are You Sure Delete (y/n)");
+            string yes = Console.ReadLine();
+            if(yes.ToUpper() == "Y")
+            {
+                conn.Open();
+                string query2 = @"DELETE FROM Tbl_HomeWork
+      WHERE Roll_No = @Roll_No";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@Roll_No", Roll_No);
+                cmd2.ExecuteNonQuery();
+                conn.Close();
+                Console.WriteLine("You Delete Successfully");
+            }
+
+           
         }
     }
 

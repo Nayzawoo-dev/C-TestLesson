@@ -222,13 +222,24 @@ namespace ConsoleApp2
         public void LoginWithDapper()
         {
             using IDbConnection connection = new SqlConnection(_str.ConnectionString);
-            Console.WriteLine("Enter Your Roll No : ");
+            Console.Write("Enter Your Roll No : ");
             int Roll_No = Convert.ToInt32(Console.ReadLine());
             string query = "select * from Tbl_HomeWork where Roll_No = @Roll_No";
             var list = connection.Query<HomeWork>(query, new {Roll_No});
-            foreach (var item in list) { 
-            Console.WriteLine(item.GitHubUserName);
+            if (list.Any())
+            {
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.GitHubUserName);
+                    return;
+                }
+            }else
+            {
+                Console.WriteLine("Your Roll No Not Found");
+                return;
             }
+            
+           
         }
 
     }

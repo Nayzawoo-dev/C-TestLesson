@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KPZPay", "KPZPay\KPZPay.csproj", "{7DBB2BE1-40DF-4AE4-A4CF-B2771B8BEF34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "LoginForm\LoginForm.csproj", "{6E96A746-7429-4871-8F6C-DBA80B2DE94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateAccount", "CreateAccount\CreateAccount.csproj", "{CC87A3DF-4451-4117-92AC-9055A0C0A230}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{7DBB2BE1-40DF-4AE4-A4CF-B2771B8BEF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DBB2BE1-40DF-4AE4-A4CF-B2771B8BEF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DBB2BE1-40DF-4AE4-A4CF-B2771B8BEF34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E96A746-7429-4871-8F6C-DBA80B2DE94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E96A746-7429-4871-8F6C-DBA80B2DE94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E96A746-7429-4871-8F6C-DBA80B2DE94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E96A746-7429-4871-8F6C-DBA80B2DE94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC87A3DF-4451-4117-92AC-9055A0C0A230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC87A3DF-4451-4117-92AC-9055A0C0A230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC87A3DF-4451-4117-92AC-9055A0C0A230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC87A3DF-4451-4117-92AC-9055A0C0A230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

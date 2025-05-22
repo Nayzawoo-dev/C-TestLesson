@@ -1,21 +1,17 @@
 using System.Data;
+using Accessibility;
 using Microsoft.Data.SqlClient;
 namespace LoginForm
 {
     public partial class Form1 : Form
     {
+       private readonly Service services;
         public Form1()
         {
             InitializeComponent();
+            services = new Service();
         }
-        private readonly SqlConnectionStringBuilder _str = new SqlConnectionStringBuilder()
-        {
-            DataSource = "DELL",
-            InitialCatalog = "DotNetTraining",
-            UserID = "SA",
-            Password = "root",
-            TrustServerCertificate = true
-        };
+
 
         private void label1_Username(object sender, EventArgs e)
         {
@@ -43,17 +39,14 @@ namespace LoginForm
 
         private void btn_Login(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(_str.ConnectionString);
             string username = txtUsername.Text;
             string password = txtPassword.Text.Trim();
-            connection.Open();
-            string query = $"select * from Tbl_Window where UserName = '{username}' and Password = '{password}'";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            SqlDataAdapter adt = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adt.Fill(dt);
-            connection.Close();
-
+            string query = "select * from Tbl_Window where UserName = @Username and Password = @Password";
+            List<SqlParameter> parameters = new List<SqlParameter>() { 
+            new SqlParameter("@Username",username),
+            new SqlParameter("Password",password)
+            };
+            DataTable dt = services.ReadQuery(query, parameters);
             if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("You User Name Or Password incorrect!");

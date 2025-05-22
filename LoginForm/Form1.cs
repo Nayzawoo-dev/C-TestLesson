@@ -57,20 +57,21 @@ namespace LoginForm
             if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("You User Name Or Password incorrect!");
-                
+
             }
             else
             {
                 MessageBox.Show("You SuccessFully Login!");
-                this.DialogResult = DialogResult.OK;    
+                this.DialogResult = DialogResult.OK;
             }
         }
 
-        private void btn_Cancel(object sender, EventArgs e)
-        {
-            txtUsername.Clear();
-            txtPassword.Clear();
-        }
+        //private void btn_Cancel(object sender, EventArgs e)
+        //{
+        //    txtUsername.Clear();
+        //    txtPassword.Clear();
+        //    this.DialogResult = DialogResult.OK;
+        //}
 
         private void Create_Account(object sender, EventArgs e)
         {
@@ -84,6 +85,11 @@ namespace LoginForm
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

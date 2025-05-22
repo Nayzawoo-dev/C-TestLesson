@@ -122,12 +122,18 @@
             // 
             // btn_Create
             // 
-            btn_Create.Location = new Point(225, 436);
+            btn_Create.BackColor = SystemColors.ActiveCaptionText;
+            btn_Create.Cursor = Cursors.Hand;
+            btn_Create.FlatAppearance.BorderColor = Color.White;
+            btn_Create.FlatAppearance.BorderSize = 0;
+            btn_Create.FlatStyle = FlatStyle.Flat;
+            btn_Create.ForeColor = Color.White;
+            btn_Create.Location = new Point(101, 436);
             btn_Create.Name = "btn_Create";
-            btn_Create.Size = new Size(164, 39);
+            btn_Create.Size = new Size(380, 39);
             btn_Create.TabIndex = 9;
             btn_Create.Text = "Create Account";
-            btn_Create.UseVisualStyleBackColor = true;
+            btn_Create.UseVisualStyleBackColor = false;
             btn_Create.Click += btn_Create_Click;
             // 
             // checkBox1
